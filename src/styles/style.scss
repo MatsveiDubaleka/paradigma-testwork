@@ -70,6 +70,12 @@ span {
       transition: 5s;
       filter: invert(68%) sepia(21%) saturate(5368%) hue-rotate(100deg) brightness(94%) contrast(86%);
     }
+    li>a:hover {
+      transition: .75s;
+      color: #F38120;
+      text-decoration: underline;
+      text-decoration-color: #F38120;
+    }
   }
 }
 
@@ -240,12 +246,12 @@ span {
   padding-top: 2vw;
   @include flex-row;
   gap: 3.7vw;
-  .main-bullets {
+  .aside {
     padding-top: 2vw;
     /*
     background-color: #1c1c1c;
     */
-    .bullets-container {
+    .aside-container {
       padding-bottom: 0.9vw;
       @include flex-col;
       align-items: center;
@@ -254,12 +260,25 @@ span {
       background: #FFFFFF;
       box-shadow: 0px 0px 75px rgba(0, 0, 0, 0.03);
       border-radius: 20px;
+      border-top-right-radius: 65px;
       font-size: 14px;
       line-height: 22px;
       gap: 0.4vw;
       clip-path: polygon(100% 4%, 100% 100%, 0 100%, 0 0);
-      .bullets-item {
+      &:hover {
+        transition: .5s;
+        background-color: rgba(18, 200, 104, 0.9);
+      }
+      .aside-advise {
+        display: none;
+      }
+      .aside-item {
         text-align: center;
+        &:hover {
+          transition: .5s;
+          cursor: pointer;
+          color: #FFFFFF;
+        }
         p {
           padding: 0 1.8vw;
           padding-bottom: 1vw;
@@ -335,10 +354,10 @@ span {
 .btn {
   @include flex-row;
   align-items: center;
-  justify-content: center;
   border: none;
   width: 375px;
   padding: 27px 2vw 29px;
+  font-family: "Montserrat", sans-serif;
   box-shadow: inset 0px 0px 22px rgba(255, 255, 255, 0.25);
   border-radius: 500px;
   font-weight: 400;
@@ -348,6 +367,8 @@ span {
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  gap: 21px;
+  justify-content: flex-end;
   transition: .7s;
   &:hover {
     transition: .7s;
@@ -364,8 +385,6 @@ span {
 
 .btn-orange {
   width: 335px;
-  justify-content: flex-end;
-  gap: 33px;
   background-color: #F38120;
   img {
     padding-right: 8px;
@@ -515,13 +534,9 @@ span {
 .close:after {
   transform: rotate(-45deg);
 }
-
 /*Close Modal Window*/
 
-
-
 /*Error Modal*/
-
 @keyframes slidein {
   from {
     right: -30vw;
@@ -556,6 +571,39 @@ span {
   display: flex;
 }
 
+/* aside Btn */
+
+.aside-btn {
+  @include flex-col;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 14px;
+  top: 50px;
+  width: 33px;
+  height: 33px;
+  opacity: 1;
+  background-color: #F38120;
+  border-radius: 50%;
+  text-align: center;
+}
+.aside-btn:hover {
+  background-color: $green;
+  opacity: 0.65;
+}
+.aside-btn:before, .aside-btn:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 10px;
+  width: 2px;
+  background-color: #FFFFFF;
+  transition: 1s ease-in;
+}
+.aside-btn:before {
+  transform: rotate(90deg);
+}
+
 @media (max-width: 1024px) {
   body {
     background-position: center;
@@ -582,6 +630,39 @@ span {
     align-items: center;
     justify-content: center;
     flex-direction: column-reverse;
+    padding-bottom: 30vh;
+    .aside {
+      .aside-container {
+        position: relative;
+        align-items: flex-start;
+        padding: 20px 45px 20px 23px;
+        &:hover {
+          transition: 0.2s;
+          border: 4px dashed $green;
+          background-color: rgba(255, 255, 255, 0.95);
+        }
+        .aside-advise {
+          display: block;
+          font-size: 10px;
+          line-height: 10px;
+          color: #B5B5B5;
+          padding-bottom: 15px;
+          &:hover {
+            color: $green;
+          }
+        }
+        .aside-item {
+          text-align: left;
+          p {
+            padding: 0;
+            &:hover {
+              color: $green;
+            }
+          }
+        }
+      }
+
+    }
     .main-content {
       align-items: center;
       justify-content: center;
@@ -597,8 +678,24 @@ span {
       .main-content__btns {
         flex-direction: column;
         .btn {
+          padding: 14px 0;
+          justify-content: flex-start;
           width: 276px;
           font-size: 10px;
+          font-weight: 200;
+          line-height: 16px;
+          text-align: center;
+          letter-spacing: 0.02em;
+          img {
+            padding: 0;
+            padding-right: 39px;
+          }
+        }
+        .btn-orange span {
+          padding-left: 57px;
+        }
+        .btn-green span {
+          padding-left: 45px;
         }
       }
       .main-content__question {
@@ -608,5 +705,45 @@ span {
         justify-content: center;
       }
     }
+  }
+
+  .aside {
+    position: fixed;
+    bottom: -33vh;
+    transition: 3s;
+  }
+
+  /* Close Button for aside Container */
+
+  .aside-btn__active:before, .aside-btn__active:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 16px;
+    width: 2px;
+    background-color: #FFFFFF;
+  }
+  .aside-btn__active:before {
+    transform: rotate(45deg);
+  }
+  .aside-btn__active:after {
+    transform: rotate(-45deg);
+  }
+
+  /*Animations for aside Container*/
+
+  @keyframes asidein {
+    from {
+      bottom: -33vh;
+    }
+    to {
+      bottom: 5vh;
+    }
+  }
+
+  .animation-bottom {
+    animation-duration: 5s;
+    animation-name: asidein;
+    bottom: 5vh;
   }
 }

@@ -1,21 +1,10 @@
 const closeBtn = document.querySelector('.close');
-const btnOrange = document.querySelector('.btn-orange');
-const btnGreen = document.querySelector('.btn-green');
 const telephoneCall = document.querySelector('.telephone-call');
 const modalContainer = document.querySelector('.modal-container');
 /*Open Modal*/
 telephoneCall.addEventListener('click', () => {
   modalContainer.classList.add('open-modal')
 })
-
-btnOrange.addEventListener('click', () => {
-  modalContainer.classList.add('open-modal')
-})
-
-btnGreen.addEventListener('click', () => {
-  modalContainer.classList.add('open-modal')
-})
-
 /*Close modal*/
 closeBtn.addEventListener('click', () => {
   modalContainer.classList.remove('open-modal')
@@ -61,5 +50,21 @@ btnSubmit.addEventListener('click', () => {
     modalContainer.classList.remove('open-modal')
     checkbox.checked = false;
     telephoneInput.value = '';
+  }
+})
+
+/*Bullets */
+
+const bulletBtn = document.querySelector('.aside-btn');
+const bulletsContainer = document.querySelector('.aside');
+const bulletsAdvise = document.querySelector('.aside-advise')
+
+bulletBtn.addEventListener('click', () => {
+  bulletsContainer.classList.toggle('animation-bottom')
+  bulletBtn.classList.toggle('bullet-btn__active')
+  if(bulletsContainer.classList.contains('animation-bottom')) {
+    bulletsAdvise.textContent = 'Нажмите плюсик, чтобы свернуть наши преимущества.'
+  } else {
+    bulletsAdvise.textContent = 'Нажмите на плюсик, чтобы увидеть все преимущества работы с нами'
   }
 })
