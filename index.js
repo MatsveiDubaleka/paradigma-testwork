@@ -53,18 +53,18 @@ btnSubmit.addEventListener('click', () => {
   }
 })
 
-/*Bullets */
+/* Aside */
 
-const bulletBtn = document.querySelector('.aside-btn');
-const bulletsContainer = document.querySelector('.aside');
-const bulletsAdvise = document.querySelector('.aside-advise')
+const asideBtn = document.querySelector('.aside-btn');
+const asidesContainer = document.querySelector('.aside');
+const asidesAdvise = document.querySelector('.aside-advise')
 
-bulletBtn.addEventListener('click', () => {
-  bulletsContainer.classList.toggle('animation-bottom')
-  bulletBtn.classList.toggle('bullet-btn__active')
-  if(bulletsContainer.classList.contains('animation-bottom')) {
-    bulletsAdvise.textContent = 'Нажмите плюсик, чтобы свернуть наши преимущества.'
+asideBtn.addEventListener('click', () => {
+  asidesContainer.classList.toggle('animation-bottom')
+  asideBtn.classList.toggle('aside-btn__active')
+  if(asidesContainer.classList.contains('animation-bottom')) {
+    asidesAdvise.textContent = 'Нажмите плюсик, чтобы свернуть наши преимущества.'
   } else {
-    bulletsAdvise.textContent = 'Нажмите на плюсик, чтобы увидеть все преимущества работы с нами'
+    asidesAdvise.textContent = 'Нажмите на плюсик, чтобы увидеть все преимущества работы с нами'
   }
 })
