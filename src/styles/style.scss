@@ -259,7 +259,7 @@ span {
       @include flex-col;
       align-items: center;
       justify-content: center;
-      width: 225px;
+      width: 157px;
       background: #FFFFFF;
       box-shadow: 0px 0px 75px rgba(0, 0, 0, 0.03);
       border-radius: 20px;
@@ -625,17 +625,58 @@ span {
       border: none;
       padding: 0;
       ul {
-        display: none;
+        display: flex;
+        position: absolute;
         flex-direction: column;
+        top: 20vh;
+        gap: 20px;
+        z-index: 4;
+        opacity: 0;
+        li:last-child {
+          display: none;
+        }
+      }
+      .open-item {
+        opacity: 1;
+        transition: 5s;
+        gap: 20px;
       }
     }
     .contacts {
       position: relative;
       align-items: center;
       padding: 0 2vw;
+      .telephone, .logo {
+        z-index: 5;
+      }
       .materials, .price, .socials {
-        display: none;
+        opacity: 0;
+        width: 90vw;
+        padding: 0;
         position: absolute;
+        z-index: 4;
+        transition: 2s;
+      }
+      .materials {
+        top: 60vh;
+        right: 5%;
+      }
+      .price {
+        top: 70vh;
+        .pdf-icon {
+          padding: 15px;
+        }
+      }
+      .socials {
+        top: 80vh;
+        right: 5%;
+      }
+      .open-item {
+        display: flex;
+        animation-duration: 5s;
+        animation-name: transparency;
+        transition: 5s;
+        opacity: 1;
       }
     }
   }
@@ -722,12 +763,11 @@ span {
 
   .aside {
     position: fixed;
-    bottom: -33vh;
+    bottom: -47.5vh;
     transition: 3s;
   }
 
   /* Close Button for aside Container */
-
   .aside-btn__active:before, .aside-btn__active:after {
     position: absolute;
     left: 15px;
@@ -744,7 +784,6 @@ span {
   }
 
   /*Animations for aside Container*/
-
   @keyframes aside-animation {
     from {
       bottom: -33vh;
@@ -760,122 +799,162 @@ span {
     bottom: 5vh;
   }
 
-
   /* Burger Menu */
-
   .burger {
     display: block;
     position: relative;
-    z-index: 1;
+    z-index: 2;
     -webkit-user-select: none;
     user-select: none;
   }
 
-  .burger input
-  {
+  .burger input {
     display: block;
     width: 40px;
     height: 32px;
     position: absolute;
     top: -7px;
     left: -5px;
-
     cursor: pointer;
-
     opacity: 0; /* hide this */
     z-index: 2; /* and place it over the hamburger */
-
     -webkit-touch-callout: none;
   }
 
-  /*
-   * Just a quick hamburger
-   */
-  .burger span
-  {
+  .burger span {
     display: block;
     width: 33px;
     height: 4px;
     margin-bottom: 5px;
     position: relative;
-
     background: #cdcdcd;
     border-radius: 3px;
-
     z-index: 1;
-
     transform-origin: 4px 0px;
-
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
     background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
     opacity 0.55s ease;
   }
 
-  .burger span:first-child
-  {
+  .burger span:first-child {
     transform-origin: 0% 0%;
   }
 
-  .burger span:nth-last-child(2)
-  {
+  .burger span:nth-last-child(2) {
     transform-origin: 0% 100%;
   }
 
-  /*
-   * Transform all the slices of hamburger
-   * into a crossmark.
-   */
-  .burger input:checked ~ span
-  {
+  .burger input:checked ~ span {
     opacity: 1;
     transform: rotate(45deg) translate(-22px, -1px);
     background: #232323;
   }
 
-  /*
-   * But let's hide the middle one.
-   */
-  .burger input:checked ~ span:nth-last-child(3)
-  {
+  .burger input:checked ~ span:nth-last-child(3) {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
   }
 
-  /*
-   * Ohyeah and the last one should go the other direction
-   */
-  .burger input:checked ~ span:nth-last-child(2)
-  {
+  .burger input:checked ~ span:nth-last-child(2) {
     opacity: 1;
     transform: rotate(-45deg) translate(-19px, -1px);
   }
 
   .menu {
     display: block;
-    position: absolute;
-    width: 220px;
-    height: 100vh;
-    margin: -100px 0 0 0;
-    padding: 50px;
+    position: fixed;
+    width: 100vw;
+    height: 200%;
+    /*
     padding-top: 125px;
-    right: 320px;
+    */
+    right: -100vw;
     background: #ededed;
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
-    /* to stop flickering of text in safari */
     transform-origin: 0% 0%;
     transform: translate(100%, 0);
-    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+    transition: 3s ease-out;
+    z-index: 1;
   }
 
-  .burger input:checked ~ .menu
-  {
-    transform: scale(1.0, 1.0);
-    opacity: 1;
+  /*Open Menu*/
+  .open-menu {
+    right: 100vw;
+    transition: 1.5s ease-in-out;
   }
-  /*
 
-  @keyframes slideout {
-    from
-  }*/
+  /*When menu is open, body can't swipe*/
+  .open {
+    overflow: hidden;
+  }
+
+  /*Transparency Animation*/
+  @keyframes transparency {
+    from{
+      opacity: 0;
+    }
+    to{
+      opacity: 1;
+    }
+  }
+
+}
+
+@media (max-width: 768px) {
+  .header {
+    nav > ul > li {
+      font-size: 10px;
+    }
+    .contacts {
+      .logo > img {
+        width: 75px;
+        height: 52px;
+      }
+      .materials {
+        top: 60vh;
+        right: 5%;
+        font-size: 8px;
+        line-height: 14px;
+      }
+      .price {
+        top: 67.5vh;
+        .pdf-icon {
+          padding: 15px;
+        }
+      }
+      .socials {
+        top: 75vh;
+        right: 5%;
+      }
+    }
+    .telephone {
+      .telephone-working {
+        font-size: 7px;
+        line-height: 9px;
+        letter-spacing: 0.02em;
+      }
+      .telephone-content a {
+        font-size: 14px;
+      }
+      .telephone-call > a {
+        font-weight: 600;
+        font-size: 10px;
+        line-height: 12px;
+        text-align: center;
+        letter-spacing: 0.04em;
+      }
+    }
+  }
+
+  .main {
+    .main-content {
+      .main-content__heading {
+        h1 {
+          font-size: 18px;
+          line-height: 30px;
+        }
+      }
+    }
+  }
 }

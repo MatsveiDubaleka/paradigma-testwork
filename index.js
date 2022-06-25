@@ -68,3 +68,24 @@ asideBtn.addEventListener('click', () => {
     asidesAdvise.textContent = 'Нажмите на плюсик, чтобы увидеть все преимущества работы с нами'
   }
 })
+
+/* Opening Burger Menu */
+
+const burgerBtn = document.querySelector('.burger')
+const burgerMenu = document.querySelector('.menu')
+
+/*Showing list of items in Burger Menu*/
+const materialsItem = document.querySelector('.materials')
+const priceItem = document.querySelector('.price')
+const socialsItem = document.querySelector('.socials')
+const navigationItem = document.querySelector('.navigation-list')
+
+burgerBtn.addEventListener('click', () => {
+  burgerMenu.classList.toggle('open-menu')
+  document.body.classList.toggle('open')
+  
+    materialsItem.classList.toggle('open-item')
+    priceItem.classList.toggle('open-item')
+    socialsItem.classList.toggle('open-item')
+    navigationItem.classList.toggle('open-item')
+})
