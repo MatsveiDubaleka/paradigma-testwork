@@ -82,7 +82,7 @@ span {
 .contacts {
   @include flex-row;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-start;
   font-size: $primary-font;
   .materials {
     padding-top: 1.45vw;
@@ -97,6 +97,7 @@ span {
     }
   }
   .price {
+    padding-left: 5.45vw;
     padding-top: 2.9vw;
     @include flex-row;
     align-items: center;
@@ -107,8 +108,7 @@ span {
       @include flex-row;
       align-items: center;
       justify-content: center;
-      width: 2vw;
-      height: 2vw;
+      padding: 15px 12px 16px 11px;
       background: #FFFFFF;
       box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.05);
       border-radius: 100px;
@@ -133,9 +133,7 @@ span {
     }
   }
   .logo {
-    /*
     padding-left: 6.15vw;
-    */
     transition: .7s;
     &:hover {
       transition: .7s;
@@ -143,8 +141,9 @@ span {
     }
   }
   .socials {
+    padding-left: 6.3vw;
     padding-top: 2.05vw;
-     padding-right: 1.9vw;
+    padding-right: 1.9vw;
     @include flex-col;
     align-items: center;
     justify-content: space-between;
@@ -192,9 +191,7 @@ span {
   }
   .telephone {
     padding-top: 2vw;
-     /*
-     padding-left: 2vw;
-     */
+    padding-left: 5.1vw;
     @include flex-col;
     align-items: center;
     justify-content: center;
@@ -259,7 +256,7 @@ span {
       @include flex-col;
       align-items: center;
       justify-content: center;
-      width: 157px;
+      width: 225px;
       background: #FFFFFF;
       box-shadow: 0px 0px 75px rgba(0, 0, 0, 0.03);
       border-radius: 20px;
@@ -609,7 +606,6 @@ span {
 .aside-btn:before {
   transform: rotate(90deg);
 }
-
 
 .burger input {
   display: none;
