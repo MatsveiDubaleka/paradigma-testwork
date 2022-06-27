@@ -266,7 +266,7 @@ span {
   border-top-right-radius: 65px;
   font-size: 14px;
   line-height: 22px;
-  gap: 0.4vw;
+  gap: 0.35vw;
   clip-path: polygon(100% 4%, 100% 100%, 0 100%, 0 0);
 }
 .main .aside .aside-container:hover {
@@ -343,7 +343,7 @@ span {
   padding-top: 2.5vw;
 }
 .main .main-content .main-content__question {
-  max-width: 220px;
+  max-width: 280px;
   padding-top: 1.95vw;
   gap: 0.6vw;
   display: flex;
@@ -656,6 +656,7 @@ span {
   .header .contacts {
     position: relative;
     align-items: center;
+    justify-content: space-between;
     padding: 0 2vw;
   }
   .header .contacts .telephone, .header .contacts .logo {
@@ -769,9 +770,10 @@ span {
     justify-content: center;
   }
 
+  /*Aside*/
   .aside {
     position: fixed;
-    bottom: -47.5vh;
+    bottom: -37.5vh;
     transition: 3s;
   }
 
@@ -796,7 +798,7 @@ span {
   /*Animations for aside Container*/
   @keyframes aside-animation {
     from {
-      bottom: -33vh;
+      bottom: -37.5vh;
     }
     to {
       bottom: 5vh;

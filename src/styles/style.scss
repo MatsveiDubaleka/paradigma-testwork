@@ -263,7 +263,7 @@ span {
       border-top-right-radius: 65px;
       font-size: 14px;
       line-height: 22px;
-      gap: 0.4vw;
+      gap: 0.35vw;
       clip-path: polygon(100% 4%, 100% 100%, 0 100%, 0 0);
       &:hover {
         transition: .5s;
@@ -337,7 +337,7 @@ span {
       padding-top: 2.5vw;
     }
     .main-content__question {
-      max-width: 220px;
+      max-width: 280px;
       padding-top: 1.95vw;
       gap: 0.6vw;
       @include flex-row;
@@ -641,6 +641,7 @@ span {
     .contacts {
       position: relative;
       align-items: center;
+      justify-content: space-between;
       padding: 0 2vw;
       .telephone, .logo {
         z-index: 5;
@@ -757,9 +758,10 @@ span {
     }
   }
 
+/*Aside*/
   .aside {
     position: fixed;
-    bottom: -47.5vh;
+    bottom: -37.5vh;
     transition: 3s;
   }
 
@@ -782,7 +784,7 @@ span {
   /*Animations for aside Container*/
   @keyframes aside-animation {
     from {
-      bottom: -33vh;
+      bottom: -37.5vh;
     }
     to {
       bottom: 5vh;
