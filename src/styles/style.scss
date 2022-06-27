@@ -808,11 +808,11 @@ span {
 
   .burger input {
     display: block;
-    width: 40px;
+    width: 20px;
     height: 32px;
     position: absolute;
-    top: -7px;
-    left: -5px;
+    top: 10px;
+    left: 24px;
     cursor: pointer;
     opacity: 0; /* hide this */
     z-index: 2; /* and place it over the hamburger */
@@ -821,11 +821,11 @@ span {
 
   .burger span {
     display: block;
-    width: 33px;
-    height: 4px;
-    margin-bottom: 5px;
+    width: 20px;
+    height: 2px;
+    margin-bottom: 4.31px;
     position: relative;
-    background: #cdcdcd;
+    background: #1c1c1c;
     border-radius: 3px;
     z-index: 1;
     transform-origin: 4px 0px;
@@ -844,7 +844,7 @@ span {
 
   .burger input:checked ~ span {
     opacity: 1;
-    transform: rotate(45deg) translate(-22px, -1px);
+    transform: rotate(45deg) translate(-5px, -10px);
     background: #232323;
   }
 
@@ -855,13 +855,13 @@ span {
 
   .burger input:checked ~ span:nth-last-child(2) {
     opacity: 1;
-    transform: rotate(-45deg) translate(-19px, -1px);
+    transform: rotate(-45deg) translate(-2px, 8px);
   }
 
   .menu {
     display: block;
     position: fixed;
-    width: 100vw;
+    width: 110vw;
     height: 200%;
     /*
     padding-top: 125px;
@@ -878,7 +878,7 @@ span {
 
   /*Open Menu*/
   .open-menu {
-    right: 100vw;
+    right: 110vw;
     transition: 1.5s ease-in-out;
   }
 
@@ -900,42 +900,70 @@ span {
 }
 
 @media (max-width: 768px) {
+  body {
+    background-position: bottom;
+    background-color: #EDF2F5;
+  }
+
   .header {
-    nav > ul > li {
-      font-size: 10px;
+    .nav {
+      width: 100%;
+      ul {
+        top: 15.6vh;
+        gap: 0;
+        li {
+          font-size: 10px;
+          line-height: 140%;        }
+      }
     }
     .contacts {
+      padding-right: 22px;
       .logo > img {
         width: 75px;
         height: 52px;
       }
       .materials {
-        top: 60vh;
+        top: 61vh;
         right: 5%;
         font-size: 8px;
         line-height: 14px;
       }
       .price {
-        top: 67.5vh;
+        top: 71.2vh;
         .pdf-icon {
-          padding: 15px;
+          padding: 15px 12px 16px 11px;
         }
       }
       .socials {
-        top: 75vh;
+        top: 81.6vh;
         right: 5%;
+        gap: 2.6vw;
+        p {
+          font-size: 8px;
+          line-height: 10px;
+          letter-spacing: 0.02em;
+        }
+        ul {
+          gap: 4.2vw;
+        }
       }
     }
     .telephone {
+      padding-top: 3.2vw;
       .telephone-working {
+        padding-left: 10px;
         font-size: 7px;
         line-height: 9px;
         letter-spacing: 0.02em;
       }
-      .telephone-content a {
+      .telephone-content {
+        padding: 0;
+        a {
         font-size: 14px;
+        }
       }
       .telephone-call > a {
+        padding: 0;
         font-weight: 600;
         font-size: 10px;
         line-height: 12px;
@@ -943,16 +971,79 @@ span {
         letter-spacing: 0.04em;
       }
     }
+    .burger {
+      padding-left: 23px;
+      padding-top: 18px;
+    }
   }
 
   .main {
+    padding-bottom: 36.9vh;
+    .aside {
+      bottom: -35.5vh;
+      .aside-container {
+        width: 130px;
+        .aside-item {
+          width: 105px;
+          font-size: 10px;
+          line-height: 15px;
+          img {display: none}
+        }
+      }
+      .aside-advise p {
+        width: 112px;
+        font-size: 6px;
+        line-height: 8px
+      }
+    }
     .main-content {
+      .main-content__btns {
+        gap: 12px;
+      }
       .main-content__heading {
+        padding-top: 25px;
         h1 {
           font-size: 18px;
           line-height: 30px;
         }
       }
+      .main-content__montage {
+        @include flex-row;
+        gap: 4.5px;
+        align-items: center;
+        .rectangle {
+          margin-top: 5px;
+          width: 3px;
+          height: 3px;
+        }
+        p {
+          font-size: 13px;
+          line-height: 16px;
+        }
+      }
+      .main-content__cost {
+        .main-content__btns {
+          padding-top: 12px;
+        }
+        .main-content__question {
+          padding-top: 18px;
+          max-width: 58vw;
+          img {
+            width: 13px;
+            height: 10px;
+          }
+          p {
+            padding-top: 4px;
+            font-size: 8px;
+            line-height: 12px;
+            letter-spacing: 0.02em;
+          }
+        }
+      }
     }
+  }
+
+  .aside-btn {
+    top: 30px;
   }
 }

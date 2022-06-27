@@ -821,11 +821,11 @@ span {
 
   .burger input {
     display: block;
-    width: 40px;
+    width: 20px;
     height: 32px;
     position: absolute;
-    top: -7px;
-    left: -5px;
+    top: 10px;
+    left: 24px;
     cursor: pointer;
     opacity: 0;
     /* hide this */
@@ -836,11 +836,11 @@ span {
 
   .burger span {
     display: block;
-    width: 33px;
-    height: 4px;
-    margin-bottom: 5px;
+    width: 20px;
+    height: 2px;
+    margin-bottom: 4.31px;
     position: relative;
-    background: #cdcdcd;
+    background: #1c1c1c;
     border-radius: 3px;
     z-index: 1;
     transform-origin: 4px 0px;
@@ -857,7 +857,7 @@ span {
 
   .burger input:checked ~ span {
     opacity: 1;
-    transform: rotate(45deg) translate(-22px, -1px);
+    transform: rotate(45deg) translate(-5px, -10px);
     background: #232323;
   }
 
@@ -868,13 +868,13 @@ span {
 
   .burger input:checked ~ span:nth-last-child(2) {
     opacity: 1;
-    transform: rotate(-45deg) translate(-19px, -1px);
+    transform: rotate(-45deg) translate(-2px, 8px);
   }
 
   .menu {
     display: block;
     position: fixed;
-    width: 100vw;
+    width: 110vw;
     height: 200%;
     /*
     padding-top: 125px;
@@ -891,7 +891,7 @@ span {
 
   /*Open Menu*/
   .open-menu {
-    right: 100vw;
+    right: 110vw;
     transition: 1.5s ease-in-out;
   }
 
@@ -911,48 +911,149 @@ span {
   }
 }
 @media (max-width: 768px) {
-  .header nav > ul > li {
+  body {
+    background-position: bottom;
+    background-color: #EDF2F5;
+  }
+
+  .header .nav {
+    width: 100%;
+  }
+  .header .nav ul {
+    top: 15.6vh;
+    gap: 0;
+  }
+  .header .nav ul li {
     font-size: 10px;
+    line-height: 140%;
+  }
+  .header .contacts {
+    padding-right: 22px;
   }
   .header .contacts .logo > img {
     width: 75px;
     height: 52px;
   }
   .header .contacts .materials {
-    top: 60vh;
+    top: 61vh;
     right: 5%;
     font-size: 8px;
     line-height: 14px;
   }
   .header .contacts .price {
-    top: 67.5vh;
+    top: 71.2vh;
   }
   .header .contacts .price .pdf-icon {
-    padding: 15px;
+    padding: 15px 12px 16px 11px;
   }
   .header .contacts .socials {
-    top: 75vh;
+    top: 81.6vh;
     right: 5%;
+    gap: 2.6vw;
+  }
+  .header .contacts .socials p {
+    font-size: 8px;
+    line-height: 10px;
+    letter-spacing: 0.02em;
+  }
+  .header .contacts .socials ul {
+    gap: 4.2vw;
+  }
+  .header .telephone {
+    padding-top: 3.2vw;
   }
   .header .telephone .telephone-working {
+    padding-left: 10px;
     font-size: 7px;
     line-height: 9px;
     letter-spacing: 0.02em;
+  }
+  .header .telephone .telephone-content {
+    padding: 0;
   }
   .header .telephone .telephone-content a {
     font-size: 14px;
   }
   .header .telephone .telephone-call > a {
+    padding: 0;
     font-weight: 600;
     font-size: 10px;
     line-height: 12px;
     text-align: center;
     letter-spacing: 0.04em;
   }
+  .header .burger {
+    padding-left: 23px;
+    padding-top: 18px;
+  }
 
+  .main {
+    padding-bottom: 36.9vh;
+  }
+  .main .aside {
+    bottom: -35.5vh;
+  }
+  .main .aside .aside-container {
+    width: 130px;
+  }
+  .main .aside .aside-container .aside-item {
+    width: 105px;
+    font-size: 10px;
+    line-height: 15px;
+  }
+  .main .aside .aside-container .aside-item img {
+    display: none;
+  }
+  .main .aside .aside-advise p {
+    width: 112px;
+    font-size: 6px;
+    line-height: 8px;
+  }
+  .main .main-content .main-content__btns {
+    gap: 12px;
+  }
+  .main .main-content .main-content__heading {
+    padding-top: 25px;
+  }
   .main .main-content .main-content__heading h1 {
     font-size: 18px;
     line-height: 30px;
+  }
+  .main .main-content .main-content__montage {
+    display: flex;
+    flex-direction: row;
+    gap: 4.5px;
+    align-items: center;
+  }
+  .main .main-content .main-content__montage .rectangle {
+    margin-top: 5px;
+    width: 3px;
+    height: 3px;
+  }
+  .main .main-content .main-content__montage p {
+    font-size: 13px;
+    line-height: 16px;
+  }
+  .main .main-content .main-content__cost .main-content__btns {
+    padding-top: 12px;
+  }
+  .main .main-content .main-content__cost .main-content__question {
+    padding-top: 18px;
+    max-width: 58vw;
+  }
+  .main .main-content .main-content__cost .main-content__question img {
+    width: 13px;
+    height: 10px;
+  }
+  .main .main-content .main-content__cost .main-content__question p {
+    padding-top: 4px;
+    font-size: 8px;
+    line-height: 12px;
+    letter-spacing: 0.02em;
+  }
+
+  .aside-btn {
+    top: 30px;
   }
 }
 
